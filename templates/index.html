@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Earth Movers</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <!--Chatbot logic-->
+    <script>
+    async function sendQuestion() {
+      const question = document.getElementById("question").value;
+      const response = await fetch("/ask", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({question})
+      });
+      const data = await response.json();
+      document.getElementById("response").innerText = data.answer;
+    }
+  </script>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#fcfaf8] group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3ede7] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#1b140e]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#1b140e] text-lg font-bold leading-tight tracking-[-0.015em]"><a href="/">Earth Movers</a></h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#1b140e] text-sm font-medium leading-normal" href="services">Services</a>
+              <a class="text-[#1b140e] text-sm font-medium leading-normal" href="about_us">About us</a>
+              <a class="text-[#1b140e] text-sm font-medium leading-normal" href="chatbot_interface">ChatBot</a>
+              <a class="text-[#1b140e] text-sm font-medium leading-normal" href="contact_us">Contact Us</a>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://cdn.usegalileo.ai/sdxl10/1e8d874f-9018-4530-931f-047c0f2d6c76.png");'
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Heavy Equipment, Delivered
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Get the machines you need, when and where you need them. Chat with our experts to get started.
+                    </h2>
+                  </div>
+                  <label class="flex flex-col min-w-40 h-14 w-full max-w-[480px] @[480px]:h-16">
+                    <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                      <div
+                        class="text-[#97734e] flex border border-[#e7dbd0] bg-[#fcfaf8] items-center justify-center pl-[15px] rounded-l-xl border-r-0"
+                        data-icon="MagnifyingGlass"
+                        data-size="20px"
+                        data-weight="regular"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                          <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                          ></path>
+                        </svg>
+                      </div>  
+                      
+                      <div class="flex items-center justify-center rounded-r-xl border-l-0 border border-[#e7dbd0] bg-[#fcfaf8] pr-[7px]">
+                        <input
+                          placeholder="Start a chat"
+                          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1b140e] focus:outline-0 focus:ring-0 border border-[#e7dbd0] bg-[#fcfaf8] focus:border-[#e7dbd0] h-full placeholder:text-[#97734e] px-[15px] rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+                          type="text"
+                          id="questionInput"
+                        />
+
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e68019] text-[#1b140e] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                          onclick="redirectToChatbot()"
+                        >
+                          <span class="truncate">Start</span>
+                        </button>
+
+                        <script>
+                          function redirectToChatbot() {
+                            const question = document.getElementById("questionInput").value.trim();
+                            if (question) {
+                              const encodedQuestion = encodeURIComponent(question);
+                              window.location.href = `/chatbot_interface?question=${encodedQuestion}`;
+                            } else {
+                              // Optionally: alert or no-op if empty
+                            }
+                          }
+
+                          document.getElementById("questionInput").addEventListener("keydown", function(event) {
+                            if (event.key === "Enter") {
+                              event.preventDefault();
+                              redirectToChatbot();
+                            }
+                          });
+                        </script>
+                      </div>
+
+
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="flex w-full grow bg-[#fcfaf8] @container py-3">
+              <div class="w-full gap-1 overflow-hidden bg-[#fcfaf8] @[480px]:gap-2 aspect-[3/2] grid grid-cols-[2fr_1fr_1fr]">
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none row-span-2"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/7e40e3db-8cb5-4a93-a69a-71745768ebe8.png");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/fac1925c-249e-49fb-bbf6-1f45a2de7f83.png");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/18c6ba94-5a17-47cf-9116-c17640436550.png");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/306376ee-4175-49b7-a1fb-11008b0719bf.png");'
+                ></div>
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a8c39226-3aad-494f-8601-1ec4dc20e514.png");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-[#1b140e] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Our Services</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Truck" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M247.42,117l-14-35A15.93,15.93,0,0,0,218.58,72H184V64a8,8,0,0,0-8-8H24A16,16,0,0,0,8,72V184a16,16,0,0,0,16,16H41a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,247.42,117ZM184,88h34.58l9.6,24H184ZM24,72H168v64H24ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm81-24H103a32,32,0,0,0-62,0H24V152H168v12.31A32.11,32.11,0,0,0,153,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,184,208Zm48-24H215a32.06,32.06,0,0,0-31-24V128h48Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Hauling</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">We provide hauling services for construction materials and debris.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="BaseballCap" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M128,24h0A104.12,104.12,0,0,0,24,128v56a24,24,0,0,0,24,24,24.11,24.11,0,0,0,14.18-4.64C74.33,194.53,95.6,184,128,184s53.67,10.52,65.81,19.35A24,24,0,0,0,232,184V128A104.12,104.12,0,0,0,128,24Zm88,104v8.87a166,166,0,0,0-40.94-18.22A167,167,0,0,0,146.19,41.9,88.14,88.14,0,0,1,216,128ZM128,44.27a152.47,152.47,0,0,1,30.4,70.46,170.85,170.85,0,0,0-60.84,0A153.31,153.31,0,0,1,128,44.27ZM109.81,41.9a167,167,0,0,0-28.87,76.76A166,166,0,0,0,40,136.88V128A88.14,88.14,0,0,1,109.81,41.9ZM211.66,191.11a8,8,0,0,1-8.44-.69C189.16,180.2,164.7,168,128,168S66.84,180.2,52.78,190.42a8,8,0,0,1-8.44.69A7.77,7.77,0,0,1,40,184V156.07a152,152,0,0,1,176,0V184A7.77,7.77,0,0,1,211.66,191.11Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Demolition</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">Our demolition services include residential, commercial, and industrial projects.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Truck" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M247.42,117l-14-35A15.93,15.93,0,0,0,218.58,72H184V64a8,8,0,0,0-8-8H24A16,16,0,0,0,8,72V184a16,16,0,0,0,16,16H41a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,247.42,117ZM184,88h34.58l9.6,24H184ZM24,72H168v64H24ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm81-24H103a32,32,0,0,0-62,0H24V152H168v12.31A32.11,32.11,0,0,0,153,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,184,208Zm48-24H215a32.06,32.06,0,0,0-31-24V128h48Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Grading</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">We offer grading services to prepare your site for construction.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="TrafficCone" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M232,208H213.69L153.42,34.75A16,16,0,0,0,138.31,24H117.69a16,16,0,0,0-15.11,10.74L42.31,208H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM95.43,104h65.14l16.7,48H78.73Zm22.26-64h20.62L155,88H101ZM73.17,168H182.83l13.92,40H59.25Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Site Prep</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">Our site prep services include land clearing, leveling, and excavation.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Sword" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M216,32H152a8,8,0,0,0-6.34,3.12l-64,83.21L72,108.69a16,16,0,0,0-22.64,0l-12.69,12.7a16,16,0,0,0,0,22.63l20,20-28,28a16,16,0,0,0,0,22.63l12.69,12.68a16,16,0,0,0,22.62,0l28-28,20,20a16,16,0,0,0,22.64,0l12.69-12.7a16,16,0,0,0,0-22.63l-9.64-9.64,83.21-64A8,8,0,0,0,224,104V40A8,8,0,0,0,216,32ZM52.69,216,40,203.32l28-28L80.68,188Zm70.61-8L48,132.71,60.7,120,136,195.31ZM208,100.06l-81.74,62.88L115.32,152l50.34-50.34a8,8,0,0,0-11.32-11.31L104,140.68,93.07,129.74,155.94,48H208Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Concrete Cutting</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">We provide concrete cutting services for construction and renovation projects.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Ruler" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M235.32,73.37,182.63,20.69a16,16,0,0,0-22.63,0L20.68,160a16,16,0,0,0,0,22.63l52.69,52.68a16,16,0,0,0,22.63,0L235.32,96A16,16,0,0,0,235.32,73.37ZM84.68,224,32,171.31l32-32,26.34,26.35a8,8,0,0,0,11.32-11.32L75.31,128,96,107.31l26.34,26.35a8,8,0,0,0,11.32-11.32L107.31,96,128,75.31l26.34,26.35a8,8,0,0,0,11.32-11.32L139.31,64l32-32L224,84.69Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Excavating</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">We offer professional excavation services for residential, commercial, and industrial projects.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Wrench" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Trenching</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">Our trenching services are ideal for utility installation, drainage systems, and more.</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#e7dbd0] bg-[#fcfaf8] p-4 flex-col">
+                <div class="text-[#1b140e]" data-icon="Hammer" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M251.34,112,183.88,44.08a96.1,96.1,0,0,0-135.77,0l-.09.09L34.25,58.4A8,8,0,0,0,45.74,69.53L59.47,55.35a79.92,79.92,0,0,1,18.71-13.9L124.68,88l-96,96a16,16,0,0,0,0,22.63l20.69,20.69a16,16,0,0,0,22.63,0l96-96,14.34,14.34h0L200,163.3a16,16,0,0,0,22.63,0l28.69-28.69A16,16,0,0,0,251.34,112ZM60.68,216,40,195.31l68-68L128.68,148ZM162.34,114.32,140,136.67,119.31,116l22.35-22.35a8,8,0,0,0,0-11.32L94.32,35a80,80,0,0,1,78.23,20.41l44.22,44.51L188,128.66l-14.34-14.34A8,8,0,0,0,162.34,114.32Zm49,37.66-12-12L228,111.25l12,12Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#1b140e] text-base font-bold leading-tight">Clearing</h2>
+                  <p class="text-[#97734e] text-sm font-normal leading-normal">We provide land clearing services for residential, commercial, and industrial projects.</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/84390fbe-63af-447f-8fcb-db15e4364f96.png");'
+                ></div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/0fc0f0ea-f60c-4227-a5f4-ea37a8559d6a.png");'
+                ></div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/1477b12a-1c58-4166-a7b2-fe359fee1d21.png");'
+                ></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a href="/data/privacy_policy.docx" download class="hover:underline text-blue-600">Terms of Service</a>
+                <a href="/data/terms_use.docx" download class="hover:underline text-blue-600">Privacy Policy</a>
+                <a class="text-[#637588] text-base font-normal leading-normal min-w-40">Do Not Sell My Product</a>
+              </div>
+              <p class="text-[#637588] text-base font-normal leading-normal">Earth Movers 2025</p>
+            </footer>
+          </div>
+        </footer>
+  </body>
+</html>
